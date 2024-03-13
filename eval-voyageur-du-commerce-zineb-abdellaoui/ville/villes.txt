@@ -1,0 +1,5 @@
+Casablanca 2 Tanger
+Rabat 5 Casablanca
+Tanger 3 Rabat
+Rabat 120 Tetouen
+
