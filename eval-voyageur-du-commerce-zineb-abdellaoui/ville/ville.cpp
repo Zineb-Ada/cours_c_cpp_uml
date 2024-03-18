@@ -1,12 +1,12 @@
 #include "ville/ville.h"
-#include "procheVoisin/voisin.h"
 #include <iostream>
 #include <algorithm>
+
 
 Ville::Ville(const std::string& _name)
 {
     name =_name;
-    distance = 0; // ajout
+    distance = 0; // distance = 0; // Cette distance est-elle nécessaire ici ?
 }
 
 const std::string Ville::getName()
@@ -18,8 +18,8 @@ void Ville::addVoisin(Ville *_ville, int _distance)
 {
     if(findVoisin(_ville->getName()) == nullptr)
     {
-        voisins.push_back(new Voisin(_ville, _distance));
-        _ville->voisins.push_back(new Voisin(this, _distance));
+        voisins.push_back(std::make_pair(_ville, _distance)); // Ajouter la paire de ville et de distance
+        _ville->voisins.push_back(std::make_pair(this, _distance)); // Ajouter la paire de la ville actuelle et de la distance à la ville voisine
     }
 }
 
@@ -29,17 +29,17 @@ void Ville::display(int indent, std::vector<Ville*> *already_displayed)
     std::cout << name << std::endl;
     for(size_t i = 0; i < voisins.size(); i++)
     {
-        Ville *_ville = voisins[i]->getVille();
+        Ville *_ville = voisins[i].first;
         for(int _i = 0; _i < indent; _i++)
         {
             std::cout << "  ";
         }
-        std::cout << "  -> " << voisins[i]->getDistance() << ": ";
+        std::cout << "  -> " << voisins[i].second << ": ";
         auto it = std::find(already_displayed->begin(), already_displayed->end(), _ville);
         if (it != already_displayed->end())
-            std::cout << voisins[i]->getVille()->getName() << std::endl;
+            std::cout << _ville->getName() << std::endl;
         else
-            voisins[i]->getVille()->display(indent + 1,  already_displayed);
+            _ville->display(indent + 1,  already_displayed);
     }
 }
 
@@ -47,15 +47,15 @@ Ville *Ville::findVoisin(const std::string name)
 {
     for(size_t i = 0; i < voisins.size(); i++)
     {
-        if(voisins[i]->getVille()->getName() == name)
+        if(voisins[i].first->getName() == name)
         {
-            return voisins[i]->getVille();
+            return voisins[i].first;
         }
     }
     return nullptr;
 }
 
-std::vector<Voisin*> Ville::getVoisins()
+std::vector<std::pair<Ville*, int>> Ville::getVoisins()
 {
     return voisins;
 }
@@ -65,10 +65,13 @@ int Ville::getDistance()
     return distance;
 }
 
-Ville::~Ville()
-{
-    for(size_t i = 0; i < voisins.size(); i++)
-    {
-        delete voisins[i];
-    }
-}
+// Ville::~Ville()
+// {
+//     for(size_t i = 0; i < voisins.size(); i++)
+//     {
+//         delete voisins[i];
+//     }
+// }
+    
+// Le destructeur doit-il être mis à jour en conséquence ?
+

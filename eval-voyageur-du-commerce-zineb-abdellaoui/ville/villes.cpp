@@ -11,9 +11,9 @@ Villes::Villes()
 Villes::Villes(Villes *Villes)
 {
     size = 0;
-    for(size_t i = 0; i < _villes->getSize(); i++)
+    for(size_t i = 0; i < Villes->getSize(); i++) // Correction de la variable _villes à Villes
     {
-        villes.push_back(_villes->villes[i]);
+        villes.push_back(Villes->villes[i]); // Correction de la variable _villes à Villes
         size++;
     }
 }
@@ -22,7 +22,7 @@ void Villes::addVille(const std::string name)
 {
     if(find(name) == nullptr)
     {
-        Villes.push_back(new Ville(name));
+        villes.push_back(new Ville(name));
         size++;
     }
 }
@@ -43,7 +43,6 @@ size_t Villes::getSize()
 {
     return size;
 }
-
 
 Ville *Villes::find(const std::string name)
 {

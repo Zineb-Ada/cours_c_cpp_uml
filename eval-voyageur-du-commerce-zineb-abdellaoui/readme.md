@@ -3,22 +3,6 @@
 
 ## Explication du code 
 
-### Fichier procheVoisin/voisin.cpp :
-
-Ce fichier implémente la classe Voisin qui représente une ville voisine dans un contexte de recherche de chemin optimal.
-
-#### Logique du code procheVoisin/voisin.cpp :
-
-La classe Voisin est utilisée pour stocker des informations sur les villes voisines dans un contexte de recherche de chemin optimal. Elle permet de connaître la distance entre deux villes et de savoir si une ville voisine a déjà été visitée.
-
-### Fichier procheVoisin/voisin.h :
-
-Le fichier voisin.h fournit la déclaration de la classe Voisin utilisée pour représenter les villes voisines dans un contexte de recherche de chemin optimal. Ce fichier est un en-tête qui déclare la classe Voisin et ses fonctions membres. Un fichier d'en-tête permet de partager la définition d'une classe entre plusieurs fichiers source (.cpp) sans dupliquer le code. 
-
-#### Logique du code procheVoisin/voisin.h :
-
-Le fichier d'en-tête voisin.h permet aux autres fichiers source du projet d'utiliser la classe Voisin sans avoir accès à son implémentation interne (définie dans voisin.cpp). Les fonctions membres publiques définissent l'interface de la classe Voisin et ce que les autres parties du code peuvent utiliser.
-
 ### Fichier ville/ville.cpp :
 
 Ce fichier implémente la classe Ville qui représente une ville dans un contexte de recherche de chemin optimal.

@@ -1,6 +1,5 @@
-#ifndef __CITY_H
-#define __CITY_H
-
+#ifndef __VILLE_H
+#define __VILLE_H
 #include <vector>
 #include <string>
 
@@ -11,7 +10,8 @@ class Ville
 {
 private:
     std::string name;
-    std::vector<Voisin*> voisins;
+    std::vector<std::pair<Ville*, int> > voisins; // Vecteur de paires pour stocker les voisins et leurs distances
+    //std::vector<Voisin*> voisins;
     int distance;
 public:
     Ville(const std::string&);
@@ -20,7 +20,7 @@ public:
     void display(int, std::vector<Ville*> *);
     Ville *findVoisin(const std::string);
     int getDistance();
-    std::vector<Voisin*> getVoisins();
+    std::vector<std::pair<Ville*, int> > getVoisins(); // Modifier le type de retour
     ~Ville();
 };
 
