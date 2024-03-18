@@ -11,9 +11,9 @@ Villes::Villes()
 Villes::Villes(Villes *Villes)
 {
     size = 0;
-    for(size_t i = 0; i < Villes->getSize(); i++) // Correction de la variable _villes à Villes
+    for(size_t i = 0; i < Villes->getSize(); i++)
     {
-        villes.push_back(Villes->villes[i]); // Correction de la variable _villes à Villes
+        villes.push_back(Villes->villes[i]);
         size++;
     }
 }

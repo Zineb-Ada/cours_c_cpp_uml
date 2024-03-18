@@ -10,8 +10,8 @@ class Ville
 {
 private:
     std::string name;
-    std::vector<std::pair<Ville*, int> > voisins; // Vecteur de paires pour stocker les voisins et leurs distances
-    //std::vector<Voisin*> voisins;
+    // Vecteur de paires pour stocker les voisins et leurs distances
+    std::vector<std::pair<Ville*, int> > voisins; 
     int distance;
 public:
     Ville(const std::string&);
@@ -20,7 +20,8 @@ public:
     void display(int, std::vector<Ville*> *);
     Ville *findVoisin(const std::string);
     int getDistance();
-    std::vector<std::pair<Ville*, int> > getVoisins(); // Modifier le type de retour
+    // Pour modifier le type de retour
+    std::vector<std::pair<Ville*, int> > getVoisins(); 
     ~Ville();
 };
 

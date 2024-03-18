@@ -6,7 +6,7 @@
 Ville::Ville(const std::string& _name)
 {
     name =_name;
-    distance = 0; // distance = 0; // Cette distance est-elle nécessaire ici ?
+    distance = 0;
 }
 
 const std::string Ville::getName()
@@ -18,8 +18,8 @@ void Ville::addVoisin(Ville *_ville, int _distance)
 {
     if(findVoisin(_ville->getName()) == nullptr)
     {
-        voisins.push_back(std::make_pair(_ville, _distance)); // Ajouter la paire de ville et de distance
-        _ville->voisins.push_back(std::make_pair(this, _distance)); // Ajouter la paire de la ville actuelle et de la distance à la ville voisine
+        voisins.push_back(std::make_pair(_ville, _distance));
+        _ville->voisins.push_back(std::make_pair(this, _distance));
     }
 }
 
@@ -72,6 +72,4 @@ int Ville::getDistance()
 //         delete voisins[i];
 //     }
 // }
-    
-// Le destructeur doit-il être mis à jour en conséquence ?
 
