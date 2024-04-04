@@ -1,5 +1,5 @@
 ## Voyageur de commerce 
-### Implémentation d' l'algorithme du proche voisin
+### Implémentation de l'algorithme du proche voisin
 
 ## Explication du code 
 
